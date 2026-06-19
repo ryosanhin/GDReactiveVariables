@@ -25,3 +25,6 @@ addons/
 
 # vscode
 .vscode/
+
+# not necessary to track .uid files in GDReactiveVariables directory
+GDReactiveVariables/**/*.uid
