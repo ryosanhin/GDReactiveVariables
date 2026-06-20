@@ -1,7 +1,7 @@
 extends Observable
 class_name DistinctUntilChangedObservable
 
-var _upstream : Observable
+var _upstream: Observable
 
 func _init(upstream: Observable) -> void:
 	_upstream = upstream

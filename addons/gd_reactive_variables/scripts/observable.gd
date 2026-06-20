@@ -36,3 +36,9 @@ func filter(predicate: Callable) -> Observable:
 ## returns: 新しい[code]Observable[/code]
 func distinct_until_changed() -> Observable:
 	return DistinctUntilChangedObservable.new(self)
+
+## 指定した回数だけ購読をスキップ
+## [param count]: スキップ回数
+## returns: 新しい[code]Observable[/code]
+func skip(count: int) -> Observable:
+	return SkipObservable.new(self, count)

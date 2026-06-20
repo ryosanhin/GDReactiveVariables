@@ -28,19 +28,19 @@ func dispose() -> void:
 
 ## 自動破棄登録
 func add_to(node: Node) -> void:
-	var subscription_manager := _find_subscription_manager(node)
-	subscription_manager.add_subscription(self)
+	var manager := _find_subscription_manager(node)
+	manager.add_subscription(self)
 
 ## [code]node[/code]の子ノードから[code]SubscriptionManager[/code]を探す[br]
 ## [param node]: 紐づけ対象の[code]node[/code][br]
 ## returns: そのノードの[code]SubscriptionManager[/code]
 func _find_subscription_manager(node: Node) -> SubscriptionManager:
-	var subscription_manager: SubscriptionManager = (
+	var manager: SubscriptionManager = (
 		node.get_meta(META_KEY) if node.has_meta(META_KEY) else null
 	)
 	
-	if is_instance_valid(subscription_manager):
-		return subscription_manager
+	if is_instance_valid(manager):
+		return manager
 	
 	var new_manager := SubscriptionManager.new()
 	node.add_child(new_manager)
