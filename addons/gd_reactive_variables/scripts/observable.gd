@@ -9,7 +9,7 @@ signal _on_complete_emitted
 
 ## 値の変更を購読[br]
 ## [param callable]: 購読時に実行するメソッド[br]
-## returns: 購読破棄用の[code]Callable[/code]
+## returns: 購読情報を保持する[code]Subscription[/code]
 func subscribe(callable: Callable) -> Subscription:
 	_on_next_emitted.connect(callable)
 	return Subscription.new(_unsubscribe.bind(callable))

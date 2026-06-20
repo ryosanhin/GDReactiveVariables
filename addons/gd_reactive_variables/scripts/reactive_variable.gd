@@ -1,5 +1,5 @@
 extends Observable
-class_name ReactiveValue
+class_name ReactiveVariable
 
 var _value: Variant
 
