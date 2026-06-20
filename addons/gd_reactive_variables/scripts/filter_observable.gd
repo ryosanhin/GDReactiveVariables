@@ -1,8 +1,8 @@
 extends Observable
 class_name FilterObservable
 
-var _upstream : Observable
-var _predicate : Callable
+var _upstream: Observable
+var _predicate: Callable
 
 func _init(upstream: Observable, predicate: Callable) -> void:
 	_upstream = upstream

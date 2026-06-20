@@ -1,8 +1,8 @@
 extends Observable
 class_name MapObservable
 
-var _upstream : Observable
-var _transform : Callable
+var _upstream: Observable
+var _transform: Callable
 
 func _init(upstream: Observable, transform: Callable) -> void:
 	_upstream = upstream

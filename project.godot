@@ -17,6 +17,10 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 project/assembly_name="GDReactiveVariables"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gd_reactive_variables/plugin.cfg")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
