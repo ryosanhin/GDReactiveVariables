@@ -21,8 +21,8 @@ data_*/
 mono_crash.*.json
 
 # addons
-addons/
-!addons/gd_reactive_variables/**/*
+addons/*
+!addons/gd_reactive_variables/
 
 # vscode
 .vscode/
