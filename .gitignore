@@ -22,9 +22,7 @@ mono_crash.*.json
 
 # addons
 addons/
+!addons/gd_reactive_variables/
 
 # vscode
 .vscode/
-
-# not necessary to track .uid files in GDReactiveVariables directory
-GDReactiveVariables/**/*.uid
