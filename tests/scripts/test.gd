@@ -1,15 +1,18 @@
 extends Node
 
 var _health := ReactiveVariable.new(100.0)
+var health: ReadOnlyReactiveVariable:
+	get:
+		return _health
 
 func _ready() -> void:
-	_health.filter(func(v): return v > 50.0) \
+	health.filter(func(v): return v > 50.0) \
 		.skip(1) \
 		.map(func(v): return "HP" + str(v)) \
 		.subscribe(func(msg): print(msg)) \
 		.add_to(self)
 	
-	_health.filter(func(v): return v < 50.0) \
+	health.filter(func(v): return v < 50.0) \
 		.map(func(v): return "Warning! HP" + str(v)) \
 		.subscribe(func(msg): print(msg)) \
 		.add_to(self)

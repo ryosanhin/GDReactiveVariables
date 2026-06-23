@@ -1,4 +1,4 @@
-extends Observable
+extends ReadOnlyReactiveVariable
 class_name ReactiveVariable
 
 var _value: Variant
@@ -14,7 +14,5 @@ var value: Variant:
 func _init(init_value: Variant) -> void:
 	_value = init_value
 
-func subscribe(callable: Callable) -> Subscription:
-	var unsub_callable := super.subscribe(callable)
-	callable.call(_value)
-	return unsub_callable
+func get_value() -> Variant:
+	return _value
