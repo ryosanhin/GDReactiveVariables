@@ -37,8 +37,20 @@ func filter(predicate: Callable) -> Observable:
 func distinct_until_changed() -> Observable:
 	return DistinctUntilChangedObservable.new(self)
 
-## 指定した回数だけ購読をスキップ
+## 指定した回数だけ購読をスキップ[br]
 ## [param count]: スキップ回数
 ## returns: 新しい[code]Observable[/code]
 func skip(count: int) -> Observable:
 	return SkipObservable.new(self, count)
+
+## 直前の値と現在の値を組にして出力[br]
+## returns: 新しい[code]Observable[/code]
+func pairwise() -> Observable:
+	return PairwiseObservable.new(self)
+
+
+## 直前の値と現在の値を組にして購読[br]
+## 初回は直前の値として[code]null[/code]を返す
+## returns: 新しい[code]Observable[/code]
+func pairwise_nullable() -> Observable:
+	return PairwiseNullableObservable.new(self)
