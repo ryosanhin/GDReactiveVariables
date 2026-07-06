@@ -16,11 +16,11 @@ func subscribe(callable: Callable) -> Subscription:
 	
 	var state := {
 		"count": 0,
-		"is_limit_reached": false
+		"is_limit_reached": false,
+		"upstream_subscription": null
 	}
-	var upstream_subscription: Subscription = null
 	
-	upstream_subscription = _upstream.subscribe(
+	state.upstream_subscription = _upstream.subscribe(
 		func(value: Variant):
 			if state.is_limit_reached:
 				return
@@ -30,11 +30,12 @@ func subscribe(callable: Callable) -> Subscription:
 			
 			if state.count >= _take_count:
 				state.is_limit_reached = true
-				if upstream_subscription != null:
-					upstream_subscription.dispose()
+				if state.upstream_subscription != null:
+					state.upstream_subscription.dispose()
 	)
 	
+	# ReactiveVariable などの購読開始と同時に発火するものの対策
 	if state.is_limit_reached:
-		upstream_subscription.dispose()
+		state.upstream_subscription.dispose()
 	
-	return Subscription.new(upstream_subscription.dispose)
+	return Subscription.new(state.upstream_subscription.dispose)

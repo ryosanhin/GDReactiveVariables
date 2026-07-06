@@ -16,7 +16,7 @@ func subscribe(callable: Callable) -> Subscription:
 
 ## 次に発行される値を一度だけ待機[br]
 ## returns: 次に発行された値
-func await_next() -> Variant:
+func async_next() -> Variant:
 	return await _on_next_emitted
 
 ## メソッドを選択しての購読の破棄[br]
@@ -58,7 +58,6 @@ func take(count: int) -> Observable:
 ## returns: 新しい[code]Observable[/code]
 func pairwise() -> Observable:
 	return PairwiseObservable.new(self)
-
 
 ## 直前の値と現在の値を組にして購読[br]
 ## 初回は直前の値として[code]null[/code]を返す

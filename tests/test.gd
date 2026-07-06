@@ -8,6 +8,7 @@ var health: ReadOnlyReactiveVariable:
 func _ready() -> void:
 	health.pairwise_nullable() \
 		.map(func(v): return "HP" + str(v.prev) + "→ HP" + str(v.current)) \
+		.take(2) \
 		.subscribe(func(msg): print(msg)) \
 		.add_to(self)
 	
