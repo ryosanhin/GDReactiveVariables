@@ -24,6 +24,8 @@ func dispose() -> void:
 		if d.is_valid():
 			d.call()
 	_disposes.clear()
+	## TEST: ちゃんと破棄されているか確認するデバッグ用の呼び出し
+	## TASK: リリース前に削除する
 	print("disposed")
 
 ## 自動破棄登録
